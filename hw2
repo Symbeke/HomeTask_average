@@ -1,0 +1,14 @@
+const express = require('express');
+const app = express()
+let Arr = [];
+app.get('/add',async(req,res)=>{
+ 
+    let data = req.query;
+    Arr.push(Number(data.number))
+    let sum = 0;
+    for(elem of Arr){
+        sum += elem
+    }
+    return res.send(String(sum/Arr.length))
+})
+app.listen(3000)
